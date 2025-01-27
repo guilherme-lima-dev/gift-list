@@ -21,7 +21,10 @@ const RegrasGerais: React.FC = () => {
           <b>2. Mantenha o charme!</b> Tentamos escolher cada presente com carinho, então, se possível, opte pelo modelo e especificações que marcamos. Não achou igualzinho? Não tem problema, fale com a gente! Vamos adorar decidir juntos outra opção.
         </p>
         <p>
-          <b>3. Prefere nos presentear com PIX?</b> Use nossa chave PIX: 
+          <b>3. Fique a vontade!</b> Nós deixamos aqui sugestões do que queremos, mas se você tiver pensado em algo que não está na lista e que achou nossa cara, vamos amar receber esse presente também!
+        </p>
+        <p>
+          <b>4. Prefere nos presentear com PIX?</b> Use nossa chave PIX: 
           <span
             onClick={() => copiarTexto(chavePix)}
             style={{ textDecoration: "underline", cursor: "pointer", fontWeight: "bold" }}
@@ -31,7 +34,7 @@ const RegrasGerais: React.FC = () => {
           (Nome: <b>Guilherme Felipe de Lima</b>). Assim, você nos ajuda de forma prática e direta a construir nosso lar doce lar!
         </p>
         <p>
-          <b>4. Quer enviar o presente?</b> Ficaremos super felizes! Você pode mandar direto para o seguinte endereço:<br />
+          <b>5. Quer enviar o presente?</b> Ficaremos super felizes! Você pode mandar direto para o seguinte endereço:<br />
           <span
             onClick={() => copiarTexto(endereco)}
             style={{ textDecoration: "underline", cursor: "pointer", fontWeight: "bold" }}

@@ -7,7 +7,6 @@ import { GiftList } from '../components/GiftList';
 import { Gift, NewGift } from '../types';
 import { useNavigate } from 'react-router-dom';
 
-
 export function AdminPage() {
   const [gifts, setGifts] = useState<Gift[]>([]);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -18,6 +17,8 @@ export function AdminPage() {
     link1: '',
     link2: '',
     link3: '',
+    min_price: 0,
+    max_price: 0,
   });
 
   useEffect(() => {
@@ -49,7 +50,15 @@ export function AdminPage() {
     }
 
     toast.success('Gift added successfully');
-    setNewGift({ name: '', image_url: '', link1: '', link2: '', link3: '' });
+    setNewGift({ 
+      name: '', 
+      image_url: '', 
+      link1: '', 
+      link2: '', 
+      link3: '', 
+      min_price: 0, 
+      max_price: 0 
+    });
     setShowAddForm(false);
     fetchGifts();
   }
@@ -131,6 +140,28 @@ export function AdminPage() {
                       setNewGift({ ...newGift, link3: e.target.value })
                     }
                     className="w-full p-2 border rounded"
+                  />
+                  <input
+                    type="number"
+                    step="0.01"
+                    placeholder="Preço Mínimo"
+                    value={newGift.min_price}
+                    onChange={(e) =>
+                      setNewGift({ ...newGift, min_price: parseFloat(e.target.value) })
+                    }
+                    className="w-full p-2 border rounded"
+                    required
+                  />
+                  <input
+                    type="number"
+                    step="0.01"
+                    placeholder="Preço Máximo"
+                    value={newGift.max_price}
+                    onChange={(e) =>
+                      setNewGift({ ...newGift, max_price: parseFloat(e.target.value) })
+                    }
+                    className="w-full p-2 border rounded"
+                    required
                   />
                 </div>
                 <div className="flex justify-end space-x-3 mt-6">

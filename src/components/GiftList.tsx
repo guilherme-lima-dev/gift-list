@@ -31,7 +31,9 @@ export function GiftList({ gifts, onSelectGift, admin }: GiftListProps) {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {gift.name}
               </h3>
-
+              <h4 className="text-xl font-semibold text-gray-900 mb-2">
+                R${gift.min_price} - R${gift.max_price}
+              </h4>
               <div className="flex flex-wrap gap-2 mb-4">
                 {[gift.link1, gift.link2, gift.link3]
                   .filter(Boolean)

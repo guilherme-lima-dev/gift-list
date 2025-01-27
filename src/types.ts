@@ -9,6 +9,8 @@ export interface Gift {
   buyer_name?: string;
   buyer_phone?: string;
   buyer_message?: string;
+  min_price?: number;
+  max_price?: number;
 }
 
 export interface NewGift {
@@ -17,4 +19,6 @@ export interface NewGift {
   link1: string;
   link2?: string;
   link3?: string;
+  min_price?: number;
+  max_price?: number;
 }
