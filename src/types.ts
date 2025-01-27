@@ -8,6 +8,7 @@ export interface Gift {
   is_purchased: boolean;
   buyer_name?: string;
   buyer_phone?: string;
+  buyer_message?: string;
 }
 
 export interface NewGift {

@@ -5,10 +5,13 @@ import { supabase } from '../lib/supabase';
 import { Header } from '../components/Header';
 import { GiftList } from '../components/GiftList';
 import { Gift, NewGift } from '../types';
+import { useNavigate } from 'react-router-dom';
+
 
 export function AdminPage() {
   const [gifts, setGifts] = useState<Gift[]>([]);
   const [showAddForm, setShowAddForm] = useState(false);
+  const navigate = useNavigate();
   const [newGift, setNewGift] = useState<NewGift>({
     name: '',
     image_url: '',
@@ -56,7 +59,13 @@ export function AdminPage() {
       <Header />
       
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        <div className="flex justify-end mb-6">
+        <div className="flex justify-between mb-6">
+          <button
+            onClick={() => navigate('/our-gifts')}
+            className="px-4 py-2 bg-sky-500 text-white rounded hover:bg-sky-600"
+          >
+            Ver Presentes Recebidos
+          </button>
           <button
             onClick={() => setShowAddForm(true)}
             className="flex items-center space-x-2 bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
@@ -66,7 +75,7 @@ export function AdminPage() {
           </button>
         </div>
 
-        <GiftList gifts={gifts} onSelectGift={() => {}} />
+        <GiftList gifts={gifts} onSelectGift={() => {}} admin={true} />
 
         {/* Add Gift Modal */}
         {showAddForm && (

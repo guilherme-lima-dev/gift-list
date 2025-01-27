@@ -11,6 +11,7 @@ export function HomePage() {
   const [selectedGift, setSelectedGift] = useState<Gift | null>(null);
   const [buyerName, setBuyerName] = useState('');
   const [buyerPhone, setBuyerPhone] = useState('');
+  const [buyerMessage, setBuyerMessage] = useState('');
   const [showBuyerForm, setShowBuyerForm] = useState(false);
 
   useEffect(() => {
@@ -41,6 +42,7 @@ export function HomePage() {
         is_purchased: true,
         buyer_name: buyerName,
         buyer_phone: buyerPhone,
+        buyer_message: buyerMessage,
       })
       .eq('id', selectedGift.id);
 
@@ -49,10 +51,11 @@ export function HomePage() {
       return;
     }
 
-    toast.success('Thank you for your gift!');
+    toast.success('Muito obrigado pelo presente! ❤');
     setShowBuyerForm(false);
     setBuyerName('');
     setBuyerPhone('');
+    setBuyerMessage('');
     setSelectedGift(null);
     fetchGifts();
   }
@@ -60,12 +63,9 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-sky-100">
       <Header />
-      
-      
 
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-      
-      <GeneralRules/>
+        <GeneralRules />
 
         <GiftList
           gifts={gifts}
@@ -101,6 +101,13 @@ export function HomePage() {
                     className="w-full p-2 border rounded"
                     required
                   />
+                  <textarea
+                    placeholder="Deixe uma mensagem para os noivos (opcional)"
+                    value={buyerMessage}
+                    onChange={(e) => setBuyerMessage(e.target.value)}
+                    className="w-full p-2 border rounded resize-none"
+                    rows={4}
+                  />
                 </div>
                 <div className="flex justify-end space-x-3 mt-6">
                   <button
@@ -108,6 +115,7 @@ export function HomePage() {
                     onClick={() => {
                       setShowBuyerForm(false);
                       setSelectedGift(null);
+                      setBuyerMessage('');
                     }}
                     className="px-4 py-2 text-gray-600 hover:text-gray-800"
                   >

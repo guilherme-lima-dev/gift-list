@@ -5,17 +5,22 @@ import { Gift as GiftType } from '../types';
 interface GiftListProps {
   gifts: GiftType[];
   onSelectGift: (gift: GiftType) => void;
+  admin: boolean;
 }
 
-export function GiftList({ gifts, onSelectGift }: GiftListProps) {
+export function GiftList({ gifts, onSelectGift, admin }: GiftListProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {gifts
-        .filter((gift) => !gift.is_purchased)
+        .filter((gift) => admin || !gift.is_purchased) // Filtra presentes para não mostrar comprados quando não for admin
         .map((gift) => (
           <div
             key={gift.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+            className={`rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow ${
+              admin && gift.is_purchased
+                ? 'bg-green-200' // Fundo verde para presentes comprados no modo admin
+                : 'bg-white'
+            }`}
           >
             <img
               src={gift.image_url}
@@ -26,6 +31,7 @@ export function GiftList({ gifts, onSelectGift }: GiftListProps) {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {gift.name}
               </h3>
+
               <div className="flex flex-wrap gap-2 mb-4">
                 {[gift.link1, gift.link2, gift.link3]
                   .filter(Boolean)
@@ -42,13 +48,16 @@ export function GiftList({ gifts, onSelectGift }: GiftListProps) {
                     </a>
                   ))}
               </div>
-              <button
-                onClick={() => onSelectGift(gift)}
-                className="w-full bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors flex items-center justify-center space-x-2"
-              >
-                <Gift className="w-5 h-5" />
-                <span>Presentear o casal</span>
-              </button>
+
+              {!admin && (
+                <button
+                  onClick={() => onSelectGift(gift)}
+                  className="w-full bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors flex items-center justify-center space-x-2"
+                >
+                  <Gift className="w-5 h-5" />
+                  <span>Presentear o casal</span>
+                </button>
+              )}
             </div>
           </div>
         ))}
