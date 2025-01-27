@@ -73,6 +73,7 @@ export function HomePage() {
             setSelectedGift(gift);
             setShowBuyerForm(true);
           }}
+          admin={false}
         />
 
         {/* Buyer Form Modal */}

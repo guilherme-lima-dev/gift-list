@@ -12,35 +12,37 @@ const RegrasGerais: React.FC = () => {
 
   return (
     <div className="bg-white rounded mt-3 mb-3 w-100 p-3">
-      <b>Regras Gerais:</b>
+      <b>Regrinhas Gerais:</b>
       <div style={{ marginTop: '10px', lineHeight: '1.5', fontSize: '16px' }}>
         <p>
-          <b>1. Se escolher, é seu compromisso:</b> Ao marcar que vai presentear, contamos com você para adquirir o item. Caso não possa, avise os noivos para que o item volte à lista.
+          <b>1. Escolheu, é de coração!</b> Ao marcar um presente na lista, estamos contando com você para trazer esse pedacinho de amor para nossa nova vida. Caso algo aconteça e você não consiga, avise a gente para que o item volte à lista, combinado?
         </p>
         <p>
-          <b>2. Seja fiel ao escolhido:</b> Tente comprar o modelo e especificações do presente selecionado. Se não encontrar, fale com os noivos para decidir outra opção.
+          <b>2. Mantenha o charme!</b> Tentamos escolher cada presente com carinho, então, se possível, opte pelo modelo e especificações que marcamos. Não achou igualzinho? Não tem problema, fale com a gente! Vamos adorar decidir juntos outra opção.
         </p>
         <p>
-          <b>3. Quer dar PIX?</b> Use nossa chave PIX (CPF):{" "}
+          <b>3. Prefere nos presentear com PIX?</b> Use nossa chave PIX: 
           <span
             onClick={() => copiarTexto(chavePix)}
             style={{ textDecoration: "underline", cursor: "pointer", fontWeight: "bold" }}
           >
             {chavePix}
-          </span>
-          . Nome: <b>Guilherme Felipe de Lima</b>.
+          </span> 
+          (Nome: <b>Guilherme Felipe de Lima</b>). Assim, você nos ajuda de forma prática e direta a construir nosso lar doce lar!
         </p>
         <p>
-          <b>4. Envio dos presentes:</b> Se quiser enviar direto para nós, use o endereço abaixo:<br />
+          <b>4. Quer enviar o presente?</b> Ficaremos super felizes! Você pode mandar direto para o seguinte endereço:<br />
           <span
             onClick={() => copiarTexto(endereco)}
             style={{ textDecoration: "underline", cursor: "pointer", fontWeight: "bold" }}
           >
             {endereco}
-          </span>
-          .
+          </span>.
         </p>
       </div>
+      <p style={{ marginTop: '10px', fontSize: '16px' }}>
+        Muito obrigada por fazer parte desse momento tão especial. Sua presença é o nosso maior presente! 💕
+      </p>
     </div>
   );
 };
