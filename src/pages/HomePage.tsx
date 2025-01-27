@@ -3,6 +3,7 @@ import { toast } from 'react-hot-toast';
 import { supabase } from '../lib/supabase';
 import { Header } from '../components/Header';
 import { GiftList } from '../components/GiftList';
+import GeneralRules from '../components/GeneralRules';
 import { Gift } from '../types';
 
 export function HomePage() {
@@ -60,7 +61,12 @@ export function HomePage() {
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-sky-100">
       <Header />
       
+      
+
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      
+      <GeneralRules/>
+
         <GiftList
           gifts={gifts}
           onSelectGift={(gift) => {
