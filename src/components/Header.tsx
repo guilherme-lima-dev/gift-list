@@ -9,7 +9,7 @@ export function Header() {
           <Heart className="w-8 h-8 text-sky-500" />
           <Gift className="w-8 h-8 text-sky-500" />
           <h1 className="text-3xl font-semibold text-center text-gray-900">
-           Lista de Presentes Larissa & Guilherme
+           Lista de Presentes L&G
           </h1>
           <Gift className="w-8 h-8 text-sky-500" />
           <Heart className="w-8 h-8 text-sky-500" />
