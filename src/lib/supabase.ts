@@ -5,6 +5,3 @@ const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 console.log(supabaseUrl);
 console.log(supabaseKey);
 export const supabase = createClient(supabaseUrl, supabaseKey);
-
-const { data } = await supabase.auth.getUser();
-console.log(data);
